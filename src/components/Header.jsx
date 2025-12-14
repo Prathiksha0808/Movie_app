@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { navigation } from '../constant/navigation';
 
 
+
   
 const Header = () => {
   const [searchinput, setSearchinput] = useState("");
@@ -20,17 +21,17 @@ const handleSearch = (e) => {
 }
     
   return (
-    <header className='fixed top-0 w-full h-16 bg-neutral-600 bg-opacity-75'>
-      <div className='container m-auto px-2 flex items-center h-full'>
+    <header className='fixed top-0 w-full h-16 bg-neutral-600 bg-opacity-75 z-40'>
+      <div className=' mx-auto px-2 flex items-center h-full'>
         <Link to="/">
           <img src={logo} alt="Logo" width={120} />
         </Link>
 
-        <nav className='hidden lg:flex item-center gap-5 ml-5 '>
+        <nav className='hidden lg:flex items-center gap-5 ml-5 '>
           {
             navigation.map((nav, index) => {
               return (
-                <div>
+                <div key={nav.label}>
                   <NavLink key={nav.label} to={nav.href} 
                   className={({ isActive }) => `px-3 hover:text-neutral-100 ${isActive && "text-neutral-100"}`} >{nav.label}</NavLink>
                 </div>
@@ -40,7 +41,7 @@ const handleSearch = (e) => {
           }
         </nav>
        
-        <div className='ml-auto flex items-center gap-4'>
+        <div className='ml-auto  hidden lg:flex items-center gap-4'>
            <div>
           <form  onSubmit={handleSearch} className='flex items-center '>
             <input type="text" placeholder='Search here....' className='bg-transparent px-4 py-4 outline-none hidden lg:block'
@@ -51,8 +52,8 @@ const handleSearch = (e) => {
 
         </div>
           
-          <div className='w-8 h-8 rounded-full overflow-hidden cursor-pointer active:scale-50'>
-            <img src={user} width="w-full h-full rounded" alt="profile" />
+          <div className='w-8 h-8 mx-auto  rounded-full overflow-hidden cursor-pointer active:scale-50'>
+            <img src={user} className="w-full h-full rounded-full object-cover" alt="profile" />
           </div>
         </div>
       </div>
