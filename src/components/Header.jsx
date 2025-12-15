@@ -21,7 +21,7 @@ const handleSearch = (e) => {
 }
     
   return (
-    <header className='fixed top-0 w-full h-16 bg-neutral-600 bg-opacity-75 z-40'>
+    <header className='fixed top-0 w-full h-16 bg-black bg-opacity-75 z-40'>
       <div className=' mx-auto px-2 flex items-center h-full'>
         <Link to="/">
           <img src={logo} alt="Logo" width={120} />
