@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
-import Videoplay from './videoplay';
+import Videoplay from './Videoplay';
 
 
 const BannerHome = () => {

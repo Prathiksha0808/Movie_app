@@ -7,7 +7,7 @@ import moment from 'moment'
 import Divider from '../components/Divider'
 import useFetch from '../hooks/useFetch'
 import HorizontalScrollcard from '../components/HorizontalScrollcard'
-import Videoplay from '../components/videoplay'
+import Videoplay from '../components/Videoplay'
 
 
 
