@@ -7,6 +7,7 @@ const SearchPage = () => {
   const location = useLocation();
   const [data, setData] = useState([])
   const [page, setpageno] = useState(1)
+  
   const navigate = useNavigate()
 
   const fetchData = async () => {
@@ -54,7 +55,7 @@ const SearchPage = () => {
       <div className='lg:hidden my-2 mx-1 sticky top-[70px] z-30'>
         <input type="text" placeholder='Search here..'
           className="px-4 py-1 text-lg w-full bg-white rounded-full mx-1 text-neutral-900 border-2 border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-400"
-          onChange={(e) => navigate(`/search?q=${e.target.value}`)} />
+          onChange={(e) => navigate(`/search?q=${e.target.value}`)}  />
 
       </div>
       <div className='container mx-auto'>
