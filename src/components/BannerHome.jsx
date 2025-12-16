@@ -1,11 +1,16 @@
-import React, { use, useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useState } from 'react';
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
+import Videoplay from './videoplay';
+
 
 const BannerHome = () => {
     const bannerdata = useSelector((state) => state.movieData.bannerData)
     const imageURL = useSelector((state) => state.movieData.imageURL)
+    const [playvideo, setPlayvideo] = useState(false);
+    const [playvideoid, setPlayvideoid] = useState(null);
+    const [mediaType, setMediaType] = useState("");
+
 
     console.log(bannerdata);
 
@@ -29,6 +34,11 @@ const BannerHome = () => {
         return () => clearInterval(interval);
     }, [bannerdata.length]);
 
+    const handlePlayVideo = (data) => {
+        setPlayvideoid(data.id);
+        setMediaType(data.media_type); // movie / tv
+        setPlayvideo(true);
+    };
 
     return (
         <section className='w-full h-full overflow-hidden'>
@@ -52,9 +62,13 @@ const BannerHome = () => {
                                         <p>Rating:{Number(data.vote_average).toFixed(1)}+</p><span>|</span>
                                         <p>View:{Number(data.popularity).toFixed(1)}</p>
                                     </div>
-                                    <button className='bg-white px-4 sm:px-4 sm:py-2 py-2 text-black mt-4 font-bold rounded hover:bg-gradient-to-l from-red-700 to-orange-500 shadow-md transition-all  hover:scale-105'>
+                                    <button
+                                        onClick={() => handlePlayVideo(data)}
+                                        className='bg-white px-4 sm:px-4 sm:py-2 py-2 text-black mt-4 font-bold rounded hover:bg-gradient-to-l from-red-700 to-orange-500 shadow-md transition-all hover:scale-105'
+                                    >
                                         Play Now
                                     </button>
+
                                 </div>
                             </div>
                         </div>
@@ -63,6 +77,14 @@ const BannerHome = () => {
                 })
                 }
             </div>
+            {playvideo && (
+                <Videoplay
+                    videoid={playvideoid}
+                    media_type={mediaType}
+                    close={() => setPlayvideo(false)}
+                />
+            )}
+
         </section>
     )
 }
