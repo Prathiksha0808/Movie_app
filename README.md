@@ -29,24 +29,6 @@ The app allows users to explore trending movies and TV shows, view detailed info
 
 ---
 
-## 📂 Project Structure
-
-Movie_app/
-├── public/
-├── src/
-│ ├── components/
-│ ├── pages/
-│ ├── hooks/
-│ ├── store/
-│ └── App.jsx
-├── .gitignore
-├── package.json
-├── vite.config.js
-└── README.md
-
-
----
-
 ## 🔑 Environment Variables
 
 Create a `.env` file in the root directory and add:
